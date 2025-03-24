@@ -50,7 +50,7 @@ const AboutUs = () => {
             <div className="mt-4 md:mt-0">
               <button
                 onClick={handleOpenModal}
-                className="bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg shadow-lg transition duration-300"
+                className="bg-teal-600 hover:bg-blue-600 text-white py-2 px-4 rounded-lg shadow-lg transition duration-300"
               >
                 Añadir Información
               </button>
@@ -59,7 +59,7 @@ const AboutUs = () => {
         </div>
 
         {/* Subtítulo */}
-        <p className="text-xl font-bold text-teal-500 mb-6">
+        <p className="text-xl font-bold  text-blue-500 mb-6">
           • Medicina Estética • Medicina General • Nutrición • Spa
         </p>
 

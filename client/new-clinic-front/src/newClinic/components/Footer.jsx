@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bottom-0 bg-gray-200 text-gray-600 py-4 flex justify-center items-center w-full h-fit align-bottom">
       <p className="text-sm font-medium">
-        © {currentYear} New Clinic, Todos los derechos reservados.
+        © {currentYear} Todos los derechos reservados.
       </p>
     </footer>
   );

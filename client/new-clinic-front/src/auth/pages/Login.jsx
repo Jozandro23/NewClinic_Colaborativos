@@ -7,127 +7,98 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
-  // Accedemos al contexto de autenticación para usar la función `login`
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Estilos CSS para los elementos del formulario
   const containerStyles = "flex flex-col items-center h-42";
   const textBoxStyles = "w-4/6 mt-4";
-  const buttonStyles = "mt-6 mb-6";
+  const buttonStyles = "bg-blue-700 hover:bg-blue-900 text-white mt-6 mb-6 p-3 rounded";
 
-  // Estados locales del componente
-  const [email, setEmail] = useState(""); // Almacena el email ingresado
-  const [password, setPassword] = useState(""); // Almacena la contraseña ingresada
-  const [errorMessage, setErrorMessage] = useState(""); // Almacena mensajes de error para mostrar al usuario
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  /**
-   * Maneja el envío del formulario de inicio de sesión.
-   * Valida los datos ingresados, envía la solicitud de inicio de sesión al servidor
-   * y actualiza el contexto de autenticación en caso de éxito.
-   *
-   * @param {Event} event - El evento de envío del formulario
-   */
   const onSubmit = async (event) => {
-    event.preventDefault(); // Previene el comportamiento por defecto del formulario
+    event.preventDefault();
 
-    // Validación inicial: Verifica si email y contraseña están presentes
     if (!email || !password) {
-      toast.error("Es necesario el email y contraseña"); 
-      setErrorMessage("Es necesario el email y contraseña." // Muestra un mensaje genérico si no hay detalles
-      );// Muestra un mensaje de error
+      toast.error("Es necesario el email y contraseña");
+      setErrorMessage("Es necesario el email y contraseña.");
       return;
     }
 
-    const user = { email, password }; // Construye el objeto con las credenciales
+    const user = { email, password };
 
     try {
-      const url = "/api/v1/auth/login"; // URL de la API para login
-
-      // Enviamos una solicitud POST con las credenciales del usuario
+      const url = "/api/v1/auth/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", // Especificamos el tipo de contenido
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(user), // Convertimos las credenciales a JSON
+        body: JSON.stringify(user),
       });
 
       if (response.ok) {
-        // Si la solicitud es exitosa
-        login(email); // Actualiza el contexto con los datos del usuario
-        navigate("/"); // Redirige a la página principal
-        setEmail(""); // Limpia el campo de email
-        setPassword(""); // Limpia el campo de contraseña
-        setErrorMessage(""); // Limpia cualquier mensaje de error previo
+        login(email);
+        navigate("/");
+        setEmail("");
+        setPassword("");
+        setErrorMessage("");
       } else {
-        // Si ocurre un error (credenciales inválidas, etc.)
-        const errorData = await response.json(); // Obtiene detalles del error
+        const errorData = await response.json();
         setErrorMessage(
-          errorData.message || "Correo o contraseña incorrectos." // Muestra un mensaje genérico si no hay detalles
+          errorData.message || "Correo o contraseña incorrectos."
         );
       }
     } catch (error) {
-      // Manejo de errores generales
-      console.error("Error en la solicitud:", error); // Loguea el error en consola
+      console.error("Error en la solicitud:", error);
       setErrorMessage("Ocurrió un error durante el proceso. Intenta nuevamente.");
     }
   };
 
   return (
-    <div
-      className="w-screen h-screen flex items-center justify-center 
-      bg-gradient-to-r from-blue-300 to-emerald-400"
-    >
-      {/* Contenedor principal del formulario */}
-      <div className="w-full max-w-[600px] p-8 shadow-2xl rounded-lg shadow-emerald-400 bg-white">
-        {/* Sección del logo */}
+    <div className="w-screen h-screen flex items-center justify-center bg-blue-500">
+      <div className="w-full max-w-[600px] p-8 shadow-2xl rounded-lg shadow-blue-900 bg-white">
         <div className="flex items-center">
           <Link to="../../newClinic/pages/AboutUs">
             <img
               src={logo}
-              alt="Logo de New Clinic" // Texto alternativo para accesibilidad
+              alt="Logo de New Clinic"
               className="hover:scale-105 transition-all w-3/4 max-w-[440px] mt-4 ml-16"
             />
           </Link>
         </div>
 
-        {/* Formulario de inicio de sesión */}
         <form onSubmit={onSubmit} className={containerStyles}>
-          {/* Campo de email */}
           <Input
             text={email}
             nameRef="email"
-            handleText={(e) => setEmail(e.target.value.toLowerCase())} // Convierte a minúsculas automáticamente
+            handleText={(e) => setEmail(e.target.value.toLowerCase())}
             placeHolder="Email"
             extraStyle={textBoxStyles}
           />
-          {/* Campo de contraseña */}
           <Input
             text={password}
             nameRef="password"
-            handleText={(e) => setPassword(e.target.value)} // Almacena el valor ingresado
-            type="password" // Campo de tipo contraseña
+            handleText={(e) => setPassword(e.target.value)}
+            type="password"
             placeHolder="Contraseña"
             extraStyle={textBoxStyles}
           />
 
-          {/* Mensaje de error, si existe */}
-          {errorMessage && 
-          (
+          {errorMessage && (
             <p className="text-red-500 text-sm mt-2">{errorMessage}</p>
           )}
 
-          {/* Botón para enviar el formulario */}
           <Button type="submit" extraStyle={buttonStyles}>
             {"Iniciar sesión como colaborador"}
           </Button>
 
-          {/* Enlace para recuperar contraseña */}
           <p>
             <Link
               to="../forgot-password"
-              className="text-blue-400 hover:text-blue-600 ml-2 cursor-pointer"
+              className="text-blue-200 hover:text-blue-400 ml-2 cursor-pointer"
             >
               ¿Has olvidado tu contraseña?
             </Link>

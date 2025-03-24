@@ -23,11 +23,12 @@ const Header = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 w-full z-50 bg-emerald-400 drop-shadow-md flex justify-between items-center text-black py-4 px-8 md:px-11"
+      className="fixed top-0 left-0 w-full z-50 bg-blue-500 drop-shadow-md flex justify-between items-center text-black py-4 px-8 md:px-11"
       style={{ height: "150px" }} // Cambia este valor según sea necesario
     >
-      <Link to="/">
-        <Logo extraStyle={imgStyles} />
+     
+     <Link to="/">
+     <Logo extraStyle={imgStyles} />
       </Link>
 
       <ul
@@ -36,7 +37,7 @@ const Header = () => {
       >
         <NavLink to="/services">
           <li
-            className="p-3 text-base text-emerald-700 hover:bg-emerald-600 
+            className="p-3 text-base text-blue-700 hover:bg-blue-600 
                     hover:text-white rounded-md transition-all
                     cursor-pointer"
           >
@@ -46,7 +47,7 @@ const Header = () => {
 
         <NavLink to="/products">
           <li
-            className="p-3 text-base text-emerald-700 hover:bg-emerald-600
+            className="p-3 text-base text-blue-700 hover:bg-blue-600
                     hover:text-white rounded-md transition-all
                     cursor-pointer"
           >
@@ -56,7 +57,7 @@ const Header = () => {
 
         <NavLink to="/">
           <li
-            className="p-3 text-base text-emerald-700 hover:bg-emerald-600 
+            className="p-3 text-base text-blue-700 hover:bg-blue-600 
                     hover:text-white rounded-md transition-all
                     cursor-pointer"
           >
@@ -66,7 +67,7 @@ const Header = () => {
 
         <NavLink to="/contact">
           <li
-            className="p-3 text-base text-emerald-700 hover:bg-emerald-600 
+            className="p-3 text-base text-blue-700 hover:bg-blue-600 
                     hover:text-white rounded-md transition-all
                     cursor-pointer"
           >
@@ -77,7 +78,7 @@ const Header = () => {
         {authState?.logged ? (
           <NavLink to="/admin/addUser">
             <li
-              className="p-3 text-base text-emerald-700 hover:bg-emerald-600 
+              className="p-3 text-base text-blue-700 hover:bg-blue-600 
                       hover:text-white rounded-md transition-all
                       cursor-pointer"
             >
@@ -90,10 +91,10 @@ const Header = () => {
       <label
         className={
           !authState?.logged
-            ? `p-3 text-base text-emerald-700 hover:bg-emerald-600 
+            ? `p-3 text-base text-blue-700 hover:bg-blue-600 
             hover:text-white rounded-md transition-all
             cursor-pointer hidden xl:flex`
-            : `p-3 text-base text-emerald-700 hover:bg-red-500 
+            : `p-3 text-base text-blue-700 hover:bg-red-500 
             hover:text-white rounded-md transition-all
             cursor-pointer hidden xl:flex`
         }
@@ -116,7 +117,7 @@ const Header = () => {
           <NavLink to="/products">
             <li
               className="list-none w-screen text-center 
-          p-4 hover:bg-emerald-600 hover:text-white
+          p-4 hover:bg-blue-600 hover:text-white
           rounded-md transition-all cursor-pointer"
               onClick={() => setMenuOpen(!menuOpen)}
             >
@@ -126,7 +127,7 @@ const Header = () => {
           <NavLink to="/services">
             <li
               className="list-none w-screen text-center 
-          p-4 hover:bg-emerald-600 hover:text-white
+          p-4 hover:bg-blue-600 hover:text-white
           rounded-md transition-all cursor-pointer"
               onClick={() => setMenuOpen(!menuOpen)}
             >
@@ -136,7 +137,7 @@ const Header = () => {
           <NavLink to="/">
             <li
               className="list-none w-screen text-center 
-                    p-4 hover:bg-emerald-600 hover:text-white
+                    p-4 hover:bg-blue-600 hover:text-white
                     rounded-md transition-all cursor-pointer"
               onClick={() => setMenuOpen(!menuOpen)}
             >
@@ -146,7 +147,7 @@ const Header = () => {
           <NavLink to="/contact">
             <li
               className="list-none w-screen text-center 
-                    p-4 hover:bg-emerald-600 hover:text-white
+                    p-4 hover:bg-blue-600 hover:text-white
                     rounded-md transition-all cursor-pointer"
               onClick={() => {
                 setMenuOpen(!menuOpen);
@@ -159,7 +160,7 @@ const Header = () => {
             <NavLink to="/admin/addUser">
               <li
                 className="list-none w-screen text-center 
-                      p-4 hover:bg-emerald-600 hover:text-white
+                      p-4 hover:bg-blue-600 hover:text-white
                       rounded-md transition-all cursor-pointer"
                 onClick={() => {}}
               >
@@ -171,7 +172,7 @@ const Header = () => {
             className={
               !authState?.logged
                 ? `list-none w-screen text-center 
-            p-4 hover:bg-emerald-600 hover:text-white
+            p-4 hover:bg-blue-600 hover:text-white
             rounded-md transition-all cursor-pointer`
                 : `list-none w-screen text-center 
             p-4 hover:bg-red-500 hover:text-white
