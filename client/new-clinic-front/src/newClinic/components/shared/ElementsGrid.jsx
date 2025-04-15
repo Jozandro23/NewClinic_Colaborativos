@@ -29,10 +29,17 @@ export const ElementsGrid = ({
       )
     : data;
 
-  const handleViewDetails = (element) => {
-    setSelectedProduct(element);
-    setShowContactForm(false);
-  };
+    //working
+    const handleViewDetails = (element) => {
+      setSelectedProduct(element);
+      setShowContactForm(false);
+    
+      const productosVistos = JSON.parse(localStorage.getItem("productos_vistos")) || {};
+    
+      productosVistos[element.name] = (productosVistos[element.name] || 0) + 1;
+    
+      localStorage.setItem("productos_vistos", JSON.stringify(productosVistos));
+    };
 
   const handleCloseModal = () => {
     setSelectedProduct(null);

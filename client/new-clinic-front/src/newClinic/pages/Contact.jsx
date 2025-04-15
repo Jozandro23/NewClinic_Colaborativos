@@ -28,6 +28,7 @@ const Contact = () => {
             <ContactList />
 
             <div className="flex flex-row justify-center items-center space-x-8">
+
               {/* Correo */}
               <div className="flex flex-col items-center space-y-2">
                 <a
@@ -43,7 +44,7 @@ const Contact = () => {
               {/* Teléfono */}
               <div className="flex flex-col items-center space-y-2">
                 <a
-                  href="https://wa.me/50661226703"
+                  href="https://wa.me/50683239524"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-14 h-14 bg-white-500 rounded-full shadow hover:bg-green-600 transition"
@@ -59,7 +60,7 @@ const Contact = () => {
               {/* Instagram */}
               <div className="flex flex-col items-center space-y-2">
                 <a
-                  href="https://www.instagram.com/newclinic.cr/"
+                  href="https://www.instagram.com/_xtremetech/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-14 h-14 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 rounded-full shadow hover:opacity-50 transition"
@@ -77,7 +78,7 @@ const Contact = () => {
           {/* Mapa con iframe de Google */}
           <div className="w-full md:w-1/2 h-64">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15719.842792015383!2d-84.12075295435953!3d9.937228188552835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fd0064a3a29b%3A0x3f5027275e7b1701!2sNew%20Clinic!5e0!3m2!1ses-419!2scr!4v1732404705181!5m2!1ses-419!2scr"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15719.842792015383!2d-84.133801!3d9.987609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fae589978f13%3A0x1251b1b67ee1bd9f!2sWalmart!5e0!3m2!1ses-419!2scr!4v1732404705181!5m2!1ses-419!2scr"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -86,6 +87,7 @@ const Contact = () => {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
+
 
           {/* Imagen de contacto */}
           {/*   */}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Button from "../components/shared/Button";
 import Input from "../components/shared/Input";
@@ -34,6 +34,18 @@ const AddUser = () => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
 
+  const [productosMasVistos, setProductosMasVistos] = useState([]);
+
+  useEffect(() => {
+    const vistos = JSON.parse(localStorage.getItem("productos_vistos")) || {};
+
+    const ordenados = Object.entries(vistos)
+      .sort((a, b) => b[1] - a[1]) // orden descendente por cantidad
+      .map(([nombre, cantidad]) => ({ nombre, cantidad }));
+
+    setProductosMasVistos(ordenados);
+  }, []);
+
   /**
    * Maneja el envío del formulario para registrar un nuevo administrador.
    * Realiza validaciones, envía datos al servidor, y actualiza la interfaz.
@@ -63,6 +75,7 @@ const AddUser = () => {
     }
   };
 
+
   return (
     <div className="grid min-h-screen pt-[150px]">
       <Header /> {/* Encabezado principal */}
@@ -77,11 +90,10 @@ const AddUser = () => {
           {/* Mostrar alerta si está activa */}
           {alert.show && (
             <div
-              className={`p-4 mb-4 text-center rounded-lg ${
-                alert.type === "success"
-                  ? "bg-green-100 text-green-700"
-                  : "bg-red-100 text-red-700"
-              }`}
+              className={`p-4 mb-4 text-center rounded-lg ${alert.type === "success"
+                ? "bg-green-100 text-green-700"
+                : "bg-red-100 text-red-700"
+                }`}
             >
               {alert.text}
             </div>
@@ -128,6 +140,23 @@ const AddUser = () => {
           <AdminList refreshTrigger={refreshTable} />
         </div>
       </div>
+
+      <div className="bg-white p-6 rounded-xl shadow mt-8 max-w-xl mx-auto">
+        <h2 className="text-xl font-semibold mb-4 text-center">Productos más vistos por los usuarios</h2>
+        <ul className="divide-y">
+          {productosMasVistos.length === 0 ? (
+            <li className="text-center text-gray-500">Aún no hay datos disponibles</li>
+          ) : (
+            productosMasVistos.map((producto, index) => (
+              <li key={index} className="py-2 flex justify-between">
+                <span>{producto.nombre}</span>
+                <span className="text-gray-600">{producto.cantidad} vistas</span>
+              </li>
+            ))
+          )}
+        </ul>
+      </div>
+
 
       <Footer /> {/* Pie de página */}
     </div>

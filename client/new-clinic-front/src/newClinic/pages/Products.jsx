@@ -64,53 +64,53 @@ const Products = () => {
   return (
     <div className="grid min-h-screen pt-[150px]">
 
-        <Header />
+      <Header />
 
-        <div className="flex-grow min-h-screen">
-          <h2 className="text-2xl font-bold mb-4 ml-20 mt-8">Productos</h2>
-          <div className="flex justify-center mb-4">
-            <Input
-              text={searchTerm}
-              handleText={(newText) => setSearchTerm(newText.target.value)}
-              placeHolder="Buscar por tipo de producto..."
-              extraStyle="w-[300px]"
-            />
-          </div>
+      <div className="flex-grow min-h-screen">
+        <h2 className="text-2xl font-bold mb-4 ml-20 mt-8">Productos</h2>
+        <div className="flex justify-center mb-4">
+          <Input
+            text={searchTerm}
+            handleText={(newText) => setSearchTerm(newText.target.value)}
+            placeHolder="Buscar por tipo de producto..."
+            extraStyle="w-[300px]"
+          />
+        </div>
 
-          {authState?.logged ? (
-            <>
-              <div className="flex justify-start relative">
-                <button
-                  className={`rounded-md bg-yellow-300 
+        {authState?.logged ? (
+          <>
+            <div className="flex justify-start relative">
+              <button
+                className={`rounded-md bg-yellow-300 
                           py-2 px-4 text-center text-lg transition-all shadow-sm 
                           hover:shadow-lg text-slate-600 hover:text-white
                           focus:text-white active:text-white disabled:pointer-events-none 
                           disabled:opacity-50 disabled:shadow-none ml-24`}
-                  onClick={() => {setIsModalOpen(!isModalOpen);}}
-                >
-                  Añadir nuevo producto
-                </button>
-              </div>
+                onClick={() => { setIsModalOpen(!isModalOpen); }}
+              >
+                Añadir nuevo producto
+              </button>
+            </div>
 
-              <ElementModal
-                title="Añadir Producto"
-                isOpen={isModalOpen}
-                onClose={onCloseAddModal}
-                type="producto"
-                style={elementModalAnimationStyle}
-              />
-            </>
-          ) : null}
+            <ElementModal
+              title="Añadir Producto"
+              isOpen={isModalOpen}
+              onClose={onCloseAddModal}
+              type="producto"
+              style={elementModalAnimationStyle}
+            />
+          </>
+        ) : null}
 
-          <ElementsGrid
-            data={productsList}
-            searchTerm={searchTerm}
-            onCloseDeleteModal={onCloseModal}
-            onCloseEditModal={onCloseModal}
-          />
-        </div>
-      
-        <Footer />
+        <ElementsGrid
+          data={productsList}
+          searchTerm={searchTerm}
+          onCloseDeleteModal={onCloseModal}
+          onCloseEditModal={onCloseModal}
+        />
+      </div>
+
+      <Footer />
     </div>
   );
 };

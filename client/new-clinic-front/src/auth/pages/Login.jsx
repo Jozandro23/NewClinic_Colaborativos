@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "../../newClinic/components/shared/Button";
 import Input from "../../newClinic/components/shared/Input";
 import { useState, useContext } from "react";
-import logo from "../../assets/logo.png"; // Ruta al logo
+import logo from "../../assets/logo.jpg"; // Ruta al logo
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 

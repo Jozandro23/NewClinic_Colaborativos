@@ -43,7 +43,7 @@ export const ContactCard = ({ productName, onClose }) => {
       Mi nombre es: ${encodeURIComponent(formData.name)}%0A
       Detalles: ${encodeURIComponent(formData.details)}%0A%0A
       Mi email es: ${encodeURIComponent(formData.email)}`;
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=50661226703&text=${message}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=50683239524&text=${message}`;
     window.open(whatsappUrl, "_blank");
     onClose();
   };

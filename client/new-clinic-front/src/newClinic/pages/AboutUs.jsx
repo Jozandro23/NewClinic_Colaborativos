@@ -3,7 +3,7 @@ import { AuthContext } from "../../auth/context/AuthContext"; // Importación de
 import Header from "../components/Header";
 import AboutUsList from "../components/shared/AboutUsList";
 import AddAboutUs from "../components/shared/AddAboutUs"; // Modal para añadir información
-import logo from "../../assets/logo.png"; // Ruta al logo
+import logo from "../../assets/NewClinic.png"; // Ruta al logo
 import Footer from "../components/Footer";
 
 const AboutUs = () => {
@@ -60,7 +60,7 @@ const AboutUs = () => {
 
         {/* Subtítulo */}
         <p className="text-xl font-bold  text-blue-500 mb-6">
-          • Medicina Estética • Medicina General • Nutrición • Spa
+          • Texto de ejemplo • Texto de ejemplo • Texto de ejemplo • 
         </p>
 
         {/* Lista de información */}

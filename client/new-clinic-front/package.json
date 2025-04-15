@@ -10,12 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "css-select": "^5.1.0",
     "leaflet": "^1.9.4",
+    "nth-check": "^2.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.27.0",
-    "styled-components": "^6.1.13"
+    "resolve-url-loader": "^5.0.0",
+    "styled-components": "^6.1.13",
+    "svgo": "^3.3.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -30,7 +34,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
-    "postcss": "^8.4.47",
+    "postcss": "^8.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
